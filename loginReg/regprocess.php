@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('Africa/Lagos');
+require_once("input-func.php");
 $errors = [];
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -10,29 +11,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
   $cpass = inputs($_POST['cpassword']);
   
   // validating users input
-  if(!$firstName){
-    $errors['firstName'] = 'Firstname cannot be left blank';
-  }
-  
-  if(!$lastName){
-    $errors['lastName'] = 'Lastname cannot be left blank';
-  }
-  
-  if(!$email){
-    $errors['email'] = 'Email cannot be left blank';
-  }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $errors['email'] = 'Enter your email correctly';
-  }
-  
-  if(!$pass) {
-    $errors['password'] = 'Password cannot be blank';
-  }
-  
-  if(!$cpass){
-    $errors['cpassword'] = 'Confirm Password cannot be blank';
-  }elseif($cpass !== $pass){
-    $errors['cpassword'] = "Your password does not match";
-  }
+  require("validate.php");
   
   if(empty($errors)){
     // if no error is found
@@ -57,9 +36,3 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
   echo "Bad Gateway";
 }
 
-function inputs($data){
-    $data = trim($data);
-    $data = strtolower($data);
-    
-    return htmlspecialchars($data);
-  }
