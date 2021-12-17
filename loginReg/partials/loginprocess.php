@@ -32,22 +32,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         $id = $row["id"];
                         $firstName = $row["firstname"];
                         $lastName = $row['lastname'];
-                        $email = $row["email"];
                         $hashed_pass = $row['password'];
                         if (password_verify($pass, $hashed_pass)) {
-                            session_start();
+                            session_regenerate_id();
 
                             $_SESSION['id'] = $id;
                             $_SESSION["firstname"] = $firstName;
+                            $_SESSION['lastname'] = $lastName;
 
-                            echo $_SESSION["firstname"];
+                            header("Location: ../index.php");
                         } else {
                             $errorMsg[] = "Your email/password does not match";
                         }
                     }
                 } else {
-                    $errorMsg[] = "You don't have an account";
-                    $errorMsg[] .= " please create account to have full access";
+                    $errorMsg[] = "You don't have an account,";
+                    $errorMsg[] .= " please create an account to have full access";
                 }
             } else {
                 $errorMsg[] = "An error occured, please try again later";

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    header('Location: reg.php');
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ require_once __DIR__ . '/partials/nav.php';
 ?>
 <div class="container">
   <?php if (isset($_SESSION['id'])) {
-    echo $_SESSION['firstnane'] . $_SESSION['lastname'];
+    echo $_SESSION['firstname'] . $_SESSION['lastname'];
 }?>
 </div>
 </body>

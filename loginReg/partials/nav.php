@@ -10,8 +10,14 @@
       <a class="nav-link" href="#">Pricing</a>
       <a class="nav-link" href="#">Services</a>
     </div>
-      <a class="nav-link" href="#">Login</a>
-      <a class="nav-link" href="#">Register</a>
-      <a class="nav-link" href="#">Logout</a>
+    <?php if (!isset($_SESSION['id'])): ?>
+      <a class="nav-link" href="../login.php">Login</a>
+      <a class="nav-link" href="../reg.php">Register</a>
+    <?php else: ?>
+      <form action="../logout.php" method="post">
+        <input type="hidden">
+        <button class="nav-link btn btn-danger d-inline-block">Logout</a>
+      </form>
+    <?php endif?>
   </div>
 </nav>
