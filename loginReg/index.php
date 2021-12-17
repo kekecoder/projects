@@ -1,18 +1,27 @@
-<!doctype html>
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: reg.php');
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf8">
-    <title>Login & Register</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Login</li>
-          <li>Register</li>
-        </ul>
-      </nav>
-    </header>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/logreg.css">
+  <title>Basic Login and Registration</title>
+</head>
+<body>
+  <?php
+require_once __DIR__ . '/partials/nav.php';
+?>
+<div class="container">
+  <?php if (isset($_SESSION['id'])) {
+    echo $_SESSION['firstnane'] . $_SESSION['lastname'];
+}?>
+</div>
+</body>
 </html>

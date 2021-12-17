@@ -1,20 +1,50 @@
-<?php 
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once("loginprocess.php");
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/logreg.css">
+  <title>Login Page</title>
+</head>
+<body>
+
+</body>
+</html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    require_once __DIR__ . "/partials/loginprocess.php";
+}
 ?>
-<form method="post">
-  <label>Email</label>
-  <input type="email" name="email">
-  <small>
-    <?php echo $errors['email'] ?? "";?>
-  </small>
-  <label>Password</label>
-  <input type="password" name="password">
-  <small>
-    <?php 
-      echo $errors['password'] ?? "";
-    ?>
-  </small>
-  <input type="submit" value="Login">
-</form>
+<?php
+require_once __DIR__ . '/partials/nav.php';
+?>
+<div class="container-fluid">
+<div class="forms">
+    <?php if (isset($errorMsg)): ?>
+      <div class="alert alert-danger text-center mb-5">
+      <?php foreach ($errorMsg as $msg): ?>
+        <?php echo $msg ?>
+      <?php endforeach;?>
+      </div>
+    <?php endif?>
+  <form method="post">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : '' ?>" value="<?=$email ?? ''?>">
+      <small>
+        <?php echo $errors['email'] ?? ""; ?>
+      </small>
+      <div class="form-group">
+      <label>Password</label>
+        <input type="password" name="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : '' ?>">
+        <small>
+          <?php echo $errors['password'] ?? ""; ?>
+        </small>
+      </div>
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary">
+  </form>
+</div>
+</div>
