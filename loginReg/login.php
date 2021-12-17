@@ -1,8 +1,7 @@
-<?php
-session_start();
-if (isset($_SESSION['id'])) {
-    header('Location: index.php');
-}
+<?php session_start();
+  if(isset($_SESSION['id'])){
+    header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,3 +53,5 @@ require_once __DIR__ . '/partials/nav.php';
   </form>
 </div>
 </div>
+
+<?php require_once 'partials/js.php'; ?>

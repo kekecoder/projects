@@ -23,5 +23,6 @@ require_once __DIR__ . '/partials/nav.php';
     echo $_SESSION['firstname'] . $_SESSION['lastname'];
 }?>
 </div>
+<?php require_once 'partials/js.php'; ?>
 </body>
 </html>

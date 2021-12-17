@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $_SESSION["firstname"] = $firstName;
                             $_SESSION['lastname'] = $lastName;
 
-                            header("Location: ../index.php");
+                          echo "<script>window.top.location='../index.php'</script>";
                         } else {
                             $errorMsg[] = "Your email/password does not match";
                         }

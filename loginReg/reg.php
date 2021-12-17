@@ -82,5 +82,6 @@ echo $errors['cpassword'] ?? '';
     </form>
     </div>
   </div>
+  <?php require_once 'partials/js.php'; ?>
 </body>
 </html>

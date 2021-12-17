@@ -11,8 +11,8 @@
       <a class="nav-link" href="#">Services</a>
     </div>
     <?php if (!isset($_SESSION['id'])): ?>
-      <a class="nav-link" href="../login.php">Login</a>
-      <a class="nav-link" href="../reg.php">Register</a>
+      <a class="nav-link btn btn-primary mb-2 mr-3 d-inline-block" href="../login.php">Login</a>
+      <a class="nav-link btn btn-secondary mb-2 d-inline-block" href="../reg.php">Register</a>
     <?php else: ?>
       <form action="../logout.php" method="post">
         <input type="hidden">
