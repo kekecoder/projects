@@ -36,13 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $query->bindValue(":password", $hashPass);
                     $query->bindValue(":created_date", date("Y-m-d H:i:s"));
 
-                    $done = $query->execute();
-                    if ($done) {
-                        session_regenerate_id();
-                        $_SESSION['id'] = $id;
-
+                    $query->execute();
+                    $_SESSION['id'] = $id;
                         header("Location: ../index.php");
-                    }
+                    
                 }
             } else {
                 $errorMsg[] = "An error has occured, please try again later";

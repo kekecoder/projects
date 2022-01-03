@@ -7,4 +7,5 @@ try {
     //print "connected successfully";
 } catch (Error $e) {
     print "An Exception has occured " . $e->getMessage();
+    print "Something went wrong, please try again later.";
 }
