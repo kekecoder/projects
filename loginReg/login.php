@@ -1,7 +1,7 @@
 <?php session_start();
-  if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     header("Location: index.php");
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +28,11 @@ require_once __DIR__ . '/partials/nav.php';
 <div class="container-fluid">
 <div class="forms">
     <?php if (isset($errorMsg)): ?>
-      <div class="alert alert-danger text-center mb-5">
       <?php foreach ($errorMsg as $msg): ?>
-        <?php echo $msg ?>
+        <div class="alert alert-danger text-center mb-5">
+          <?php echo $msg ?>
+        </div>
       <?php endforeach;?>
-      </div>
     <?php endif?>
   <form method="post">
     <div class="form-group">
@@ -54,4 +54,4 @@ require_once __DIR__ . '/partials/nav.php';
 </div>
 </div>
 
-<?php require_once 'partials/js.php'; ?>
+<?php require_once 'partials/js.php';?>

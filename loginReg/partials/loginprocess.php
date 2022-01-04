@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!$email) {
         $errors['email'] = 'Email cannot be left blank';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Enter your email correctly';
+        $errors['email'] = 'Enter a valid email address';
     }
 
     if (!$pass) {
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $_SESSION["firstname"] = $firstName;
                             $_SESSION['lastname'] = $lastName;
 
-                          echo "<script>window.top.location='../index.php'</script>";
+                            echo "<script>window.top.location='../index.php'</script>";
                         } else {
                             $errorMsg[] = "Your email/password does not match";
                         }

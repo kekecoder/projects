@@ -37,9 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $query->bindValue(":created_date", date("Y-m-d H:i:s"));
 
                     $query->execute();
+<<<<<<< HEAD
                     $_SESSION['id'] = $id;
                         header("Location: ../index.php");
                     
+=======
+
+                    $_SESSION['id'] = $id;
+
+                    header("Location: ../index.php");
+
+>>>>>>> 1374f22 (updated)
                 }
             } else {
                 $errorMsg[] = "An error has occured, please try again later";
@@ -50,4 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 } else {
     echo "Bad Gateway";
+}
+
+function isLoggedIn()
+{
+    if (isset($_SESSION['id'])) {
+        return true;
+    }
+    return false;
 }
