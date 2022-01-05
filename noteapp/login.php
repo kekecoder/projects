@@ -1,14 +1,6 @@
-<!Doctype HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf8">
-    <title>NoteApp | Login</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/noteapp.css">
-  </head>
-  <body>
-    <div class="container-fluid">
+<?php require __DIR__ . '/templates/header.php'?>
       <h2 class="text-center mt-4">Login Here</h2>
+      <div class="forms">
       <form class="form mt-4">
   <div class="form-group">
     <label for="Email">Email</label>
@@ -22,7 +14,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <p class="mt-3">Already have an account? <a href="register.php">Signup Here</a></p> 
+      <p class="mt-3">Already have an account? <a href="register.php">Signup Here</a></p>
+      </div>
     </div>
   </body>
 </html>
