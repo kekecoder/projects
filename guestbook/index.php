@@ -8,11 +8,12 @@
   <head>
     <meta charset="utf8">
     <title>Guestbook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container">
-      <h1>Welcome on Board</h1>
+    <div class="container container-sm">
+      <h1 class="text-center mb-3 mt-3">Welcome on Board</h1>
       <p>Please fill the form below.</p>
       <form action="" method="post">
         <div class="row">

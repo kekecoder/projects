@@ -29,6 +29,17 @@ if(!$comment){
   $error['comment'] = "The text you entered is too short";
 }
 
+$created_at = date("Y-m-d H:i:s");
+
+if(empty($error)){
+  require_once 'dbconfig.php';
+  require_once 'controller.php';
+  
+  $insert = new Comment($pdo, 'guest');
+  $insert->insert(['firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'comment' => $comment, 'created_at' => $created_at]);
+  header("Location: ../guestapp.php");
+}
+
 function validatInput($data){
   $data = trim($data);
   $data = htmlspecialchars($data);
