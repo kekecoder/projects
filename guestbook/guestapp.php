@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set("Africa/Lagos");
-require_once __DIR__ . '/core/dbconfig.php';
+try {
+  require_once __DIR__ . '/core/dbconfig.php';
 $query = $pdo->prepare("SELECT * FROM guest ORDER BY created_at ASC");
 $query->execute();
 
@@ -8,6 +9,12 @@ $guestapp = $query->fetchAll(PDO::FETCH_ASSOC);
 /*echo "<pre>";
 var_dump($guestapp);
 echo "</pre>"; */
+} catch (Exception $e) {
+  //print "An Exception occurred " . $e->getMessage();
+  print "Server is down at this time 😪😪, please try again later";
+  exit();
+}
+
 ?>
 
 <!Doctype html>

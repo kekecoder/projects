@@ -42,7 +42,8 @@ if(empty($error)){
     
   } catch (Exception $e) {
     //print "An Exception has occurred " . $e->getMessage();
-    print "Something went wrong, please try again later";
+    print "Server is down at this time 😪😪, please try again later";
+    exit();
   }
 }
 
