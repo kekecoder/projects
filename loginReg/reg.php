@@ -4,23 +4,13 @@ if (isset($_SESSION['id'])) {
     header('Location: index.php');
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/logreg.css">
-  <title>Registration Page</title>
-</head>
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     require_once __DIR__ . '/partials/regprocess.php';
 }
-?>
-<body>
-<?php
+
+require_once __DIR__ . '/partials/head.php';
 require_once __DIR__ . '/partials/nav.php';
 ?>
   <div class="container">

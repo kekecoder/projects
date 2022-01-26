@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (empty($errors)) {
+      try{
         require_once 'dbconfig.php';
 
         $query = ("SELECT id, firstname, lastname, password FROM users WHERE email = :email");
@@ -53,6 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $errorMsg[] = "An error occured, please try again later";
             }
         }
+      }catch(Exception $e){
+        //print "An Exception occurred " . $e->getMessage();
+        print "Server is down at this time 😪😪😪,please try again later. Thanks";
+        exit;
+      }
     } else {
         $errorMsg[] = "An error occured, please try again later";
     }
