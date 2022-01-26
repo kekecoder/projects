@@ -20,7 +20,7 @@
           <div class="col">
             <div class="form-group">
           <label for="firstname">First Name</label>
-          <input type="text" name="firstname" class="form-control <?php echo isset($error['firstname']) ? 'is-invalid' : ''?>">
+          <input type="text" name="firstname" class="form-control <?php echo isset($error['firstname']) ? 'is-invalid' : ''?>" value="<?=$firstname ?? ''?>">
           <small class="invalid-feedback">
             <?php echo $error['firstname'] ?? ''?>
           </small>
@@ -29,7 +29,7 @@
           <div class="col">
             <div class="form-group">
           <label for="lastname">Last Name</label>
-          <input type="text" class="form-control <?php echo isset($error['lastname']) ? 'is-invalid' : ''?>" name="lastname">
+          <input type="text" class="form-control <?php echo isset($error['lastname']) ? 'is-invalid' : ''?>" name="lastname" value="<?=$lastname ?? ''?>">
           <small class="invalid-feedback">
             <?php echo $error['lastname'] ?? ''?>
           </small>
@@ -38,14 +38,14 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control <?php echo isset($error['email']) ? 'is-invalid' : ''?>" name="email">
+          <input type="email" class="form-control <?php echo isset($error['email']) ? 'is-invalid' : ''?>" name="email" value="<?=$email ?? ''?>">
           <small class="invalid-feedback">
             <?php echo $error['email'] ?? ''?>
           </small>
         </div>
         <div class="form-group">
           <label for="comment">Comment</label>
-          <textarea name="comment" class="form-control <?php echo isset($error['comment']) ? 'is-invalid' : ''?>"></textarea>
+          <textarea name="comment" class="form-control <?php echo isset($error['comment']) ? 'is-invalid' : ''?>"><?=$comment ?? ''?></textarea>
           <small class="invalid-feedback">
             <?php echo $error['comment'] ?? ''?>
           </small>
